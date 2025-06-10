@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: msmodel
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: msmodel
+  template:
+    metadata:
+      labels:
+        app: msmodel
+    spec:
+      containers:
+      - name: msmodel
+        image: ghofrane694/msmodel:latest
+        ports:
+        - containerPort: 5002
