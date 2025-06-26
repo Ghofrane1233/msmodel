@@ -48,7 +48,7 @@ pipeline {
         stage(' Déploiement sur Kubernetes') {
             steps {
                 script {
-                    withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://127.0.0.1:52747']) {
+                    withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://127.0.0.1:54337']) {
                         bat 'kubectl apply -f db-secret.yaml --validate=false'
                         bat 'kubectl apply -f k8s/deployment.yaml --validate=false'
                         bat 'kubectl apply -f k8s/service.yaml --validate=false'
